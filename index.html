@@ -5,15 +5,15 @@
 <script>document.documentElement.classList.remove("no-js");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MCOM — 为 Mac 而生的 Minecraft 启动器</title>
-<meta name="description" content="MCOM 是用 Swift 与 AppKit 从零写成的 macOS Minecraft 启动器。8.7 MB，零第三方依赖，自动匹配 Java，双源竞速下载。">
+<meta name="description" content="Mac 上的 Minecraft 启动器，Swift + AppKit 写的。8.7 MB，自动配 Java，官方与国内镜像双源下载。">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="MCOM — 为 Mac 而生的 Minecraft 启动器">
-<meta property="og:description" content="用 Swift 从零写成。8.7 MB，零第三方依赖。">
+<meta property="og:description" content="Swift 和 AppKit 写的，8.7 MB。下载解压就能用。">
 <meta property="og:image" content="assets/icon.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=2">
 </head>
 <body>
 
@@ -41,7 +41,7 @@
       <span class="badge rise" style="--d:0ms"><i class="dot"></i>MCOM 1.0 · 现已发布</span>
       <h1 class="rise" style="--d:80ms">为 Mac 而生的<br><em>Minecraft 启动器</em></h1>
       <p class="lede rise" style="--d:170ms">
-        用 Swift 与 AppKit 从零写成。没有 Electron 外壳，没有内嵌浏览器，也没有一行 Java 界面代码。
+        Swift 和 AppKit 写的。8.7 MB，打开就是 macOS 的窗口，中间没夹一层网页。
       </p>
       <div class="hero-actions rise" style="--d:260ms">
         <a class="btn btn-primary" href="download/">
@@ -73,20 +73,20 @@
     <div class="claims">
       <article class="claim" data-reveal>
         <span class="num">01 — 零依赖</span>
-        <h3>解压 zip 这件事，我们自己写了。</h3>
-        <p>用系统的 libz 直接实现 inflate，两百行。为了它拖进一个第三方包，不值 —— 依赖会版本冲突，会在三年后的某次系统更新里悄悄坏掉。</p>
+        <h3>解压 ZIP 的代码是我自己写的。</h3>
+        <p>系统自带 libz，直接调 inflate，两百来行。为这点事拖一个第三方包进来不划算：依赖会打架，还可能在某次系统更新后悄悄挂掉，而你根本不知道是它干的。</p>
       </article>
 
       <article class="claim" data-reveal>
         <span class="num">02 — Java</span>
         <h3>每个实例，自己认领一个 Java。</h3>
-        <p>版本 JSON 说要 21，就去全机找 21；找不到才退而求其次，并且明确告诉你「用的是 22，通常没问题」。你也可以把某个实例钉死在某个 JDK 上，互不打扰。</p>
+        <p>版本 JSON 要 21 就去全机找 21。找不到才退一步用 22，并且把这句话摆在界面上：「本机没有正好 Java 21 的运行时，改用 Java 22」。不是闷着头替你换一个。</p>
       </article>
 
       <article class="claim" data-reveal>
         <span class="num">03 — 自愈</span>
-        <h3>坏了，它能自己修。</h3>
-        <p>版本 JSON 会校验，依赖库会补齐，本地缓存读不出来就重新下载，类路径逐条核对。你不需要知道这些，只需要它下次还能启动。</p>
+        <h3>崩过几次，才学会自己修。</h3>
+        <p>版本 JSON 对不上就重下，依赖库缺了就补，缓存读坏了就扔掉。这些都不该让你看见 —— 你按启动，它开起来，就这样。</p>
       </article>
     </div>
   </div>
@@ -95,9 +95,9 @@
 <!-- ============================================================ 功能 -->
 <section class="features" id="features">
   <div class="wrap">
-    <h2 data-reveal>你真正会在意的几件事。</h2>
+    <h2 data-reveal>它大概能干这些。</h2>
     <p class="sub" data-reveal style="--delay:80ms">
-      MCOM 只做启动器该做的事 —— 装好、配好、启动、把日志留给你。
+      装好、配好、启动、日志留着。就这四件事，做扎实。
     </p>
 
     <div class="bento">
@@ -107,8 +107,8 @@
         </div>
         <h3>原生界面，不是网页套壳</h3>
         <p class="card-text">
-          侧栏、页签、工具栏、快捷键全部是系统控件。深色模式、全屏、分屏、系统字体大小，都跟着 macOS 走 ——
-          因为它本来就是 AppKit 应用的一部分。
+          侧栏、页签、工具栏都是系统控件。切深色模式、全屏、分屏、改系统字号，它跟着一起变 ——
+          因为它本来就是 AppKit 的一部分，不是画在上面的一层。
         </p>
         <div class="tag-row">
           <span class="tag">SwiftUI</span>
@@ -122,7 +122,7 @@
         <div class="card-num"><span data-target="8.7" data-decimals="1">0</span> MB</div>
         <h3>整个安装包</h3>
         <p class="card-text">
-          不打包运行时，不打包字体，不带浏览器内核。下载完成，拖进「应用程序」，双击就是它。
+          运行时、字体、浏览器内核一样都没打包。下载完拖进「应用程序」，双击，就这样。
         </p>
         <div class="tag-row">
           <span class="tag">通用二进制</span>
@@ -134,7 +134,7 @@
       <article class="card" data-reveal>
         <div class="card-num"><span data-target="921">0</span></div>
         <h3>个版本，随你挑</h3>
-        <p class="card-text">从远古的 Alpha 到最新的快照，官方清单与国内镜像双源竞速，谁先回来用谁。</p>
+        <p class="card-text">Alpha 时代的版本也还在。清单同时问官方和国内镜像，哪个先回来用哪个。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:80ms">
@@ -142,7 +142,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z"/><path d="M16 10h2a2 2 0 1 1 0 4h-2"/><path d="M7 3v2M11 3v2"/></svg>
         </div>
         <h3>Java 自动匹配</h3>
-        <p class="card-text">按版本 JSON 的 <code>javaVersion</code> 精确对齐，走 JVM 自己上报的 <code>java.home</code>，符号链接也不会错。</p>
+        <p class="card-text">按版本 JSON 里写的要求找，读 JVM 自己上报的 <code>java.home</code>。Homebrew 那种符号链接也骗不过它。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:160ms">
@@ -150,7 +150,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
         </div>
         <h3>官方目录结构</h3>
-        <p class="card-text">saves、mods、resourcepacks 与官方启动器完全一致，随时能被官方启动器或 HMCL 接手。</p>
+        <p class="card-text">saves、mods、resourcepacks 和官方启动器一模一样。哪天不想用了，官方启动器或 HMCL 直接接手，存档不用搬。</p>
       </article>
 
       <article class="card card-wide" data-reveal>
@@ -158,7 +158,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 2 2-2 2M12 13h4"/></svg>
         </div>
         <h3>崩了也能看到为什么</h3>
-        <p class="card-text">stdout 与 stderr 全量接入日志，命令行原文、退出码、堆栈都留着。不是黑屏，然后让你猜。</p>
+        <p class="card-text">stdout 和 stderr 全进日志，连实际执行的那条命令行都存着。不是黑一下，然后让你猜。</p>
         <div class="tag-row">
           <span class="tag">实时输出</span>
           <span class="tag">命令行原文</span>
@@ -170,12 +170,31 @@
       <article class="card card-wide dark" data-reveal style="--delay:80ms">
         <h3 style="margin-bottom:14px">启动前，先自己检查一遍</h3>
         <p class="card-text" style="margin-bottom:0">
-          Java、依赖库、资源索引、原生库 —— 有问题当场说清楚是哪一个、缺多少、怎么补。
+          Java、依赖库、资源索引，缺哪个、缺多少个，直接写在卡片里。
         </p>
         <div class="card-shot">
           <img src="assets/shot-overview.png" width="2240" height="1516" alt="启动前自检" loading="lazy">
         </div>
       </article>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-head">
+        <h3 data-reveal>再看两眼界面。</h3>
+        <p data-reveal style="--delay:70ms">新建实例和实例设置。真截图，没有重绘，也没有把光标 P 掉。</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="shot" data-reveal>
+          <img src="assets/shot-versions.png" width="2240" height="1516"
+               alt="新建实例向导：填写实例名称、选择游戏版本，列表同时显示快照与正式版" loading="lazy">
+          <figcaption>新建实例 — 四个步骤，版本列表能直接搜 1.21.1</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--delay:90ms">
+          <img src="assets/shot-settings.png" width="2240" height="1516"
+               alt="实例设置：内存滑块、窗口尺寸、Java 选择方式、游戏目录模式" loading="lazy">
+          <figcaption>实例设置 — 内存、窗口、Java、游戏目录、JVM 参数</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -187,7 +206,7 @@
       <div class="tech-left">
         <p class="kicker">踩过的坑</p>
         <h2>这些细节不会出现在截图上。</h2>
-        <p>但它们决定了启动器是「能用」还是「好用」。下面是几件我们认真处理过的事。</p>
+        <p>截图上看不见，用起来能感觉到。下面几件是写的时候真踩过的。</p>
         <div class="tech-progress"><i></i></div>
       </div>
 
@@ -195,13 +214,13 @@
         <article class="tech-item">
           <span class="idx">01</span>
           <h3>自己解压 ZIP</h3>
-          <p>用系统 libz 直接实现 inflate。代价是多写两百行代码，收益是零依赖、零版本冲突 —— 装到任何一台 Mac 上，行为都一样。</p>
+          <p>系统自带 libz，调 inflate 就够。多写了大概两百行，换来的是不需要任何第三方包 —— 装到哪台 Mac 上，行为都一样。</p>
         </article>
 
         <article class="tech-item">
           <span class="idx">02</span>
           <h3>两条通道，两个源，四路竞速</h3>
-          <p>系统代理与直连同时发出，官方与国内镜像同时发出。第一个回来的结果决定后续走哪条路 —— 在这台机器上，它把每个请求 21 秒的超时变成了 0.7 秒。</p>
+          <p>系统代理和直连同时发，官方和国内镜像同时发。谁先回，后面全走它。这台机器上系统 PAC 解析不通，URLSession 每个请求要卡满 21 秒；改成四路竞速之后是 0.7 秒。</p>
           <div class="code"><span class="c">// 四路并发，先到先得</span>
 proxy   + official     proxy   + <span class="k">mirror</span>
 direct  + official     direct  + <span class="k">mirror</span>
@@ -211,13 +230,13 @@ direct  + official     direct  + <span class="k">mirror</span>
         <article class="tech-item">
           <span class="idx">03</span>
           <h3>原样保存 Mojang 的字节</h3>
-          <p>版本 JSON 不做 decode → encode 往返。少写一个字段的编码器，官方启动器与 HMCL 就再也认不出这个版本 —— 所以干脆一个字节都不动。</p>
+          <p>版本 JSON 原样落盘，不 decode 再 encode。我试过走 Codable 往返，结果枚举编码出来的结构变了，自己都读不回来，官方启动器和 HMCL 更认不出。现在一个字节都不动。</p>
         </article>
 
         <article class="tech-item">
           <span class="idx">04</span>
           <h3>普通库，不手动解压</h3>
-          <p>1.19 之后 natives 变成了带 classifier 的普通库，直接进 classpath，由 LWJGL 自己提取 dylib —— 与官方启动器行为一致，而不是自作聪明地解压一遍。</p>
+          <p>1.19 之后 natives 变成带 classifier 的普通库，直接挂在 classpath 上，LWJGL 自己会把 dylib 抽出来。我一开始多此一举解压了一遍，后来发现官方启动器根本不这么干。</p>
         </article>
       </div>
     </div>
@@ -253,7 +272,7 @@ direct  + official     direct  + <span class="k">mirror</span>
   <div class="cta-watermark">MCOM</div>
   <div class="wrap-narrow">
     <h2 data-reveal>把它下载下来。</h2>
-    <p data-reveal style="--delay:80ms">3 MB 的压缩包，解压即用。没有安装器，没有后台服务，没有账号要求。</p>
+    <p data-reveal style="--delay:80ms">3 MB。解压，拖进「应用程序」，双击。没有安装器，也不用注册账号。</p>
     <a class="btn btn-blue" href="download/" data-reveal style="--delay:150ms">
       下载 MCOM 1.0
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
@@ -280,6 +299,6 @@ direct  + official     direct  + <span class="k">mirror</span>
   </div>
 </footer>
 
-<script src="assets/main.js" defer></script>
+<script src="assets/main.js?v=2" defer></script>
 </body>
 </html>

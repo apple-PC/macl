@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="../assets/icon.png">
 <link rel="apple-touch-icon" href="../assets/icon.png">
-<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css?v=2">
 </head>
 <body>
 
@@ -22,6 +22,7 @@
     <div class="nav-links">
       <a href="../#features">功能</a>
       <a href="../#tech">技术</a>
+      <a href="#java">Java</a>
       <a href="../#numbers">规格</a>
     </div>
     <a class="nav-cta" href="../downloads/MCOM-1.0.zip">下载</a>
@@ -62,7 +63,7 @@
     <table class="spec-table">
       <tr><th>系统</th><td>macOS 14 Sonoma 或更高版本</td></tr>
       <tr><th>芯片</th><td>Apple Silicon 与 Intel 通用（同一个二进制，不是两份）</td></tr>
-      <tr><th>Java</th><td>不捆绑运行时。需要本机已安装 Java 21 或更高 —— 装了多个版本也没关系，MCOM 会为每个实例挑合适的那个</td></tr>
+      <tr><th>Java</th><td>不捆绑运行时，用系统里已有的那份。新版游戏要 Java 21，老版本要 17 或 8 —— <a href="#java" style="color:var(--blue-soft)">怎么装见下一节</a>。装了好几个也不冲突，MCOM 按实例挑</td></tr>
       <tr><th>磁盘</th><td>MCOM 本身 8.7 MB；每个游戏版本约 300 MB 至 1 GB，取决于版本与资源文件</td></tr>
       <tr><th>网络</th><td>首次安装版本时需要联网。之后可完全离线启动</td></tr>
     </table>
@@ -116,10 +117,76 @@
   </div>
 </section>
 
+<!-- ============================================================ Java -->
+<section class="section-pad" id="java">
+  <div class="wrap-narrow">
+    <h2 data-reveal>先装个 Java</h2>
+    <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-bottom:20px">
+      MCOM 不捆绑 Java，用的是你系统里已经有的一份。所以第一次打开之前，先确认有没有。
+      在「终端」里跑这一行：
+    </p>
+
+    <div class="cmd">
+      <span>/usr/libexec/java_home -V</span>
+      <button data-copy="/usr/libexec/java_home -V">复制</button>
+    </div>
+
+    <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-top:18px">
+      列出一串版本号（17、21 之类）就说明有，直接跳到下一节。如果提示
+      <code>Unable to find any JVM</code>，那就是真没装，接着往下看。
+    </p>
+
+    <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:44px 0 14px">去 Oracle 下</h3>
+    <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-bottom:16px">
+      下载页在这：<a href="https://www.oracle.com/java/technologies/downloads/#java21-mac" target="_blank" rel="noopener" style="color:var(--blue-soft)">oracle.com/java/technologies/downloads</a>。
+      找到 JDK 21 那一栏，按自己的芯片选 DMG：
+    </p>
+
+    <table class="spec-table">
+      <tr>
+        <th>Apple Silicon</th>
+        <td>macOS ARM64 DMG Installer<br>
+          <span style="font-family:var(--mono);font-size:13px;color:var(--dimmer)">jdk-21_…_macos-aarch64_bin.dmg</span></td>
+      </tr>
+      <tr>
+        <th>Intel</th>
+        <td>macOS x64 DMG Installer<br>
+          <span style="font-family:var(--mono);font-size:13px;color:var(--dimmer)">jdk-21_…_macos-x64_bin.dmg</span></td>
+      </tr>
+    </table>
+
+    <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-top:18px">
+      双击 dmg，一路下一步。装完不用配 <code>JAVA_HOME</code>，也不用改 <code>PATH</code> ——
+      MCOM 自己去 <code>/Library/Java/JavaVirtualMachines</code> 底下数。
+    </p>
+
+    <div class="note">
+      <strong>Oracle 现在得登录账号才能下。</strong>
+      嫌麻烦的话用 Adoptium 的 Temurin，同一套 OpenJDK 的免费构建，下载不要账号：
+      <a href="https://adoptium.net/temurin/releases/?version=21" target="_blank" rel="noopener" style="color:var(--blue-soft)">adoptium.net</a>。
+      装哪个 MCOM 都认。
+    </div>
+
+    <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:44px 0 14px">哪个版本要哪个 Java</h3>
+    <table class="spec-table">
+      <tr><th>1.20.5 及以后</th><td>Java 21</td></tr>
+      <tr><th>1.18 – 1.20.4</th><td>Java 17</td></tr>
+      <tr><th>1.17</th><td>Java 16</td></tr>
+      <tr><th>1.16.5 及更早</th><td>Java 8</td></tr>
+    </table>
+
+    <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-top:18px">
+      只玩新版的话，装一个 JDK 21 就够。想开 1.16 或更早，还得再装个 JDK 8 ——
+      Oracle 页面往下拉能翻到，注意它的包名是 <code>macosx</code> 不是 <code>macos</code>。
+      几个版本同时装着不会打架，MCOM 会按实例挑。
+    </p>
+  </div>
+</section>
+
 <!-- ============================================================ 上手 -->
 <section class="section-pad">
   <div class="wrap-narrow">
-    <h2 data-reveal>装好之后，三步开始玩</h2>
+    <h2 data-reveal>Java 有了，剩下三步</h2>
     <div class="steps">
       <div class="step" data-reveal>
         <span class="no">01</span>
@@ -198,6 +265,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js" defer></script>
+<script src="../assets/main.js?v=2" defer></script>
 </body>
 </html>
