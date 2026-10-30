@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.remove("no-js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>下载 MCOM 1.0 — 为 Mac 而生的 Minecraft 启动器</title>
+<meta name="description" content="下载 MCOM 1.0。8.7 MB，macOS 14 及以上，Apple Silicon 与 Intel 通用。">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="wrap">
+    <a class="nav-brand" href="../">
+      <img src="../assets/icon.png" alt="MCOM 图标">
+      <span>MCOM</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#features">功能</a>
+      <a href="../#tech">技术</a>
+      <a href="../#numbers">规格</a>
+    </div>
+    <a class="nav-cta" href="../downloads/MCOM-1.0.zip">下载</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="glow"></div>
+  <div class="wrap">
+    <a class="back-home" href="../">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      返回首页
+    </a>
+    <h1 class="rise">下载 MCOM</h1>
+    <p class="rise" style="--d:90ms">一个 3 MB 的压缩包，解压即用。</p>
+  </div>
+</header>
+
+<div class="dl-card rise" style="--d:170ms">
+  <img class="icon" src="../assets/icon.png" alt="MCOM">
+  <div class="dl-info">
+    <h2>MCOM 1.0</h2>
+    <p class="meta">2026 年 10 月 30 日 · 8.7 MB（压缩后 3.0 MB）· 通用二进制</p>
+    <div class="dl-actions">
+      <a class="btn btn-blue" href="../downloads/MCOM-1.0.zip" download>
+        下载 .zip
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#install">怎么安装</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ 要求 -->
+<section class="section-pad">
+  <div class="wrap-narrow">
+    <h2 data-reveal>运行要求</h2>
+    <table class="spec-table">
+      <tr><th>系统</th><td>macOS 14 Sonoma 或更高版本</td></tr>
+      <tr><th>芯片</th><td>Apple Silicon 与 Intel 通用（同一个二进制，不是两份）</td></tr>
+      <tr><th>Java</th><td>不捆绑运行时。需要本机已安装 Java 21 或更高 —— 装了多个版本也没关系，MCOM 会为每个实例挑合适的那个</td></tr>
+      <tr><th>磁盘</th><td>MCOM 本身 8.7 MB；每个游戏版本约 300 MB 至 1 GB，取决于版本与资源文件</td></tr>
+      <tr><th>网络</th><td>首次安装版本时需要联网。之后可完全离线启动</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ 安装 -->
+<section class="section-pad" id="install">
+  <div class="wrap-narrow">
+    <h2 data-reveal>安装</h2>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <span class="no">01</span>
+        <div>
+          <h3>解压下载的压缩包</h3>
+          <p>双击 <code>MCOM-1.0.zip</code>，会得到一个 <code>MCOM.app</code>。</p>
+        </div>
+      </div>
+
+      <div class="step" data-reveal>
+        <span class="no">02</span>
+        <div>
+          <h3>拖进「应用程序」文件夹</h3>
+          <p>从任何位置运行也可以，但放进 <code>/Applications</code> 之后才能被 Spotlight 找到、被程序坞固定。</p>
+        </div>
+      </div>
+
+      <div class="step" data-reveal>
+        <span class="no">03</span>
+        <div>
+          <h3>第一次打开：右键 → 打开</h3>
+          <p>
+            MCOM 没有经过 Apple 公证（个人开发者，一年 99 美元的开发者账号还没买）。直接双击会被 Gatekeeper 拦下，
+            提示「无法验证开发者」。这不是病毒警告，是「我没见过它」。
+          </p>
+          <p><strong style="color:var(--ink)">方法一：</strong>在 Finder 里按住 <kbd>Control</kbd> 点按 MCOM，选「打开」，再确认一次。之后就能正常双击了。</p>
+          <p><strong style="color:var(--ink)">方法二：</strong>在「终端」里跑一行命令，去掉下载隔离标记：</p>
+          <div class="cmd">
+            <span>xattr -dr com.apple.quarantine /Applications/MCOM.app</span>
+            <button data-copy="xattr -dr com.apple.quarantine /Applications/MCOM.app">复制</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>为什么会被拦？</strong>
+      macOS 对从网络下载的、没有 Apple 公证的应用一律提示「无法验证开发者」。MCOM 使用 ad-hoc 签名并开启了
+      Hardened Runtime，代码是完整的、没有被篡改 —— 只是没有向 Apple 购买那张证书。上面两种方式都能正常打开。
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 上手 -->
+<section class="section-pad">
+  <div class="wrap-narrow">
+    <h2 data-reveal>装好之后，三步开始玩</h2>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <span class="no">01</span>
+        <div>
+          <h3>新建实例</h3>
+          <p>点侧栏的「+」，选一个游戏版本。列表里有 900 多个版本，输入 <code>1.21.1</code> 就能直接定位。</p>
+        </div>
+      </div>
+
+      <div class="step" data-reveal>
+        <span class="no">02</span>
+        <div>
+          <h3>等它下载完</h3>
+          <p>客户端、依赖库、资源文件会并行下载，进度、速度、剩余时间都在下载面板里。中断了也没关系，已下载的部分会留着。</p>
+        </div>
+      </div>
+
+      <div class="step" data-reveal>
+        <span class="no">03</span>
+        <div>
+          <h3>点「启动游戏」</h3>
+          <p>启动前会自检 Java、依赖库、资源索引。全绿就直接进游戏；有问题会明确告诉你是哪个。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>账户：</strong>目前只支持离线账户 —— 起个名字就能玩单人模式和局域网。微软正版登录的数据结构与钥匙串通道已经写好，界面还没做，
+      这一版先不发。如果你只玩单机与自建服务器，离线账户足够了。
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 已知限制 -->
+<section class="section-pad">
+  <div class="wrap-narrow">
+    <h2 data-reveal>这一版还没有的东西</h2>
+    <table class="spec-table">
+      <tr><th>微软账户登录</th><td>数据结构与 Keychain 通道已就位，UI 未做</td></tr>
+      <tr><th>自动更新</th><td>新版本需要手动下载覆盖。应用本身不联网检查更新</td></tr>
+      <tr><th>整合包导入</th><td>导入 / 导出逻辑已写，还没有入口</td></tr>
+      <tr><th>Forge / NeoForge</th><td>通过官方 installer 安装，需要本机有可用的 Java</td></tr>
+      <tr><th>Apple 公证</th><td>没有。首次打开需要右键，见上方安装步骤</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ 校验 -->
+<section class="section-pad">
+  <div class="wrap-narrow">
+    <h2 data-reveal>文件校验</h2>
+    <p style="color:var(--dim);font-size:15px;margin-bottom:18px">
+      下载完成后，可以在终端里核对 SHA-256。与下面一致，说明文件完整。
+    </p>
+    <div class="cmd">
+      <span>shasum -a 256 ~/Downloads/MCOM-1.0.zip</span>
+      <button data-copy="shasum -a 256 ~/Downloads/MCOM-1.0.zip">复制</button>
+    </div>
+    <p class="hash" style="margin-top:16px">2b83d52ce3be2fb033d5bfdcf35ee8cf1c4a8304f106ebcf3742960f203c3d86</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="row">
+      <div><strong style="color:var(--dim);font-weight:500">MCOM</strong> · 用 Swift 写成 · 2026</div>
+      <div style="display:flex;gap:22px">
+        <a href="../">首页</a>
+        <a href="../downloads/MCOM-1.0.zip">下载</a>
+      </div>
+    </div>
+    <p class="sep">
+      MCOM 是独立开发的第三方启动器，与 Mojang Studios、Microsoft 无任何关联。<br>
+      Minecraft 是 Mojang Studios 的商标。使用本软件需要你自行拥有合法的 Minecraft 账户。
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/main.js" defer></script>
+</body>
+</html>
