@@ -515,6 +515,7 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1fr 1fr;
   gap: 26px;
 }
+.shot-wide { grid-column: 1 / -1; }
 .shot { margin: 0; }
 .shot img {
   width: 100%;

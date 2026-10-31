@@ -5,17 +5,17 @@
 <script>document.documentElement.classList.remove("no-js");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Macl — 为 Mac 而生的 Minecraft 启动器</title>
-<meta name="description" content="Mac 上的 Minecraft 启动器，Swift + AppKit 写的。8.8 MB，自动配 Java，官方与国内镜像双源下载。">
+<meta name="description" content="Mac 上的 Minecraft 启动器，Swift + AppKit 写的。11 MB，自动配 Java，官方与国内镜像双源下载。">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="Macl — 为 Mac 而生的 Minecraft 启动器">
-<meta property="og:description" content="Swift 和 AppKit 写的，8.8 MB。下载解压就能用。">
+<meta property="og:description" content="Swift 和 AppKit 写的，11 MB。下载解压就能用。">
 <meta property="og:image" content="https://apple-pc.github.io/macl/assets/icon.png">
 <meta property="og:url" content="https://apple-pc.github.io/macl/">
 <link rel="canonical" href="https://apple-pc.github.io/macl/">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 <body>
 
@@ -40,10 +40,10 @@
 
   <div class="wrap">
     <div class="hero-inner">
-      <span class="badge rise" style="--d:0ms"><i class="dot"></i>Macl 1.0 · 现已发布</span>
+      <span class="badge rise" style="--d:0ms"><i class="dot"></i>Macl 1.1 · 现已发布</span>
       <h1 class="rise" style="--d:80ms">为 Mac 而生的<br><em>Minecraft 启动器</em></h1>
       <p class="lede rise" style="--d:170ms">
-        Swift 和 AppKit 写的。8.8 MB，打开就是 macOS 的窗口，中间没夹一层网页。
+        Swift 和 AppKit 写的。11 MB，打开就是 macOS 的窗口，中间没夹一层网页。
       </p>
       <div class="hero-actions rise" style="--d:260ms">
         <a class="btn btn-primary" href="download/">
@@ -52,7 +52,7 @@
         </a>
         <a class="btn btn-ghost" href="#features">看看它做了什么</a>
       </div>
-      <p class="hero-meta rise" style="--d:340ms">8.8 MB 安装包 · macOS 14 Sonoma 及以上 · Apple Silicon 与 Intel 通用</p>
+      <p class="hero-meta rise" style="--d:340ms">11 MB 安装包 · macOS 14 Sonoma 及以上 · Apple Silicon 与 Intel 通用</p>
     </div>
   </div>
 
@@ -121,7 +121,7 @@
       </article>
 
       <article class="card card-wide" data-reveal style="--delay:80ms">
-        <div class="card-num"><span data-target="8.7" data-decimals="1">0</span> MB</div>
+        <div class="card-num"><span data-target="11" data-decimals="1">0</span> MB</div>
         <h3>整个安装包</h3>
         <p class="card-text">
           运行时、字体、浏览器内核一样都没打包。下载完拖进「应用程序」，双击，就这样。
@@ -136,7 +136,7 @@
       <article class="card" data-reveal>
         <div class="card-num"><span data-target="921">0</span></div>
         <h3>个版本，随你挑</h3>
-        <p class="card-text">Alpha 时代的版本也还在。清单同时问官方和国内镜像，哪个先回来用哪个。</p>
+        <p class="card-text">Alpha 时代的版本也还在。加载器装好之后还能换版本、换类型、退回原版，存档不用搬。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:80ms">
@@ -153,6 +153,14 @@
         </div>
         <h3>官方目录结构</h3>
         <p class="card-text">saves、mods、resourcepacks 和官方启动器一模一样。哪天不想用了，官方启动器或 HMCL 直接接手，存档不用搬。</p>
+      </article>
+
+      <article class="card" data-reveal style="--delay:160ms">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 13.6c2.8.3 4.5 2.2 4.5 4.9"/></svg>
+        </div>
+        <h3>联机不用碰路由器</h3>
+        <p class="card-text">内置陶瓦联机。房主把世界对局域网开放，回来点一下创建房间，把邀请码发过去就行 —— 不用公网 IP，也不用在路由器上开端口。</p>
       </article>
 
       <article class="card card-wide" data-reveal>
@@ -183,7 +191,7 @@
     <div class="gallery">
       <div class="gallery-head">
         <h3 data-reveal>再看两眼界面。</h3>
-        <p data-reveal style="--delay:70ms">新建实例和实例设置。真截图，没有重绘，也没有把光标 P 掉。</p>
+        <p data-reveal style="--delay:70ms">新建实例、实例设置、联机。真截图，没有重绘，也没有把光标 P 掉。</p>
       </div>
       <div class="gallery-grid">
         <figure class="shot" data-reveal>
@@ -193,8 +201,13 @@
         </figure>
         <figure class="shot" data-reveal style="--delay:90ms">
           <img src="assets/shot-settings.png" width="2240" height="1516"
-               alt="实例设置：内存滑块、窗口尺寸、Java 选择方式、游戏目录模式" loading="lazy">
-          <figcaption>实例设置 — 内存、窗口、Java、游戏目录、JVM 参数</figcaption>
+               alt="实例设置：顶部是游戏与加载器，可以更换加载器版本或移除；下面是内存、窗口、Java 与游戏目录" loading="lazy">
+          <figcaption>实例设置 — 加载器装完还能换版本、换类型、退回原版</figcaption>
+        </figure>
+        <figure class="shot shot-wide" data-reveal>
+          <img src="assets/shot-online.png" width="2240" height="1516"
+               alt="联机页：创建房间、加入房间，以及两边版本要对得上的提示" loading="lazy">
+          <figcaption>联机 — 陶瓦 P2P，不用公网 IP，也不用在路由器上开端口</figcaption>
         </figure>
       </div>
     </div>
@@ -250,7 +263,7 @@ direct  + official     direct  + <span class="k">mirror</span>
   <div class="wrap">
     <div class="num-grid">
       <div class="num-cell">
-        <div class="v"><span data-target="8.7" data-decimals="1">0</span><small>MB</small></div>
+        <div class="v"><span data-target="11" data-decimals="1">0</span><small>MB</small></div>
         <div class="l">安装体积</div>
       </div>
       <div class="num-cell">
@@ -274,9 +287,9 @@ direct  + official     direct  + <span class="k">mirror</span>
   <div class="cta-watermark">Macl</div>
   <div class="wrap-narrow">
     <h2 data-reveal>把它下载下来。</h2>
-    <p data-reveal style="--delay:80ms">3 MB。解压，拖进「应用程序」，双击。没有安装器，也不用注册账号。</p>
+    <p data-reveal style="--delay:80ms">3.5 MB。解压，拖进「应用程序」，双击。没有安装器，也不用注册账号。</p>
     <a class="btn btn-blue" href="download/" data-reveal style="--delay:150ms">
-      下载 Macl 1.0
+      下载 Macl 1.1
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
     </a>
   </div>
@@ -301,6 +314,6 @@ direct  + official     direct  + <span class="k">mirror</span>
   </div>
 </footer>
 
-<script src="assets/main.js?v=3" defer></script>
+<script src="assets/main.js?v=4" defer></script>
 </body>
 </html>
