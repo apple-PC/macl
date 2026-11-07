@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-11-07T19:31:59+08:00",
+  "downloads": {
+    "total": 7,
+    "byRelease": {
+      "v1.3": 2,
+      "v1.2": 2,
+      "v1.1": 1,
+      "v1.0": 2
+    }
+  },
+  "pageViews": {
+    "source": "busuanzi",
+    "sitePv": null,
+    "siteUv": null,
+    "note": "由浏览器实时读取；不做服务端抓取，避免制造假访问"
+  },
+  "history": [
+    {
+      "date": "2026-11-07",
+      "downloads": 7
+    }
+  ],
+  "sources": {
+    "downloads": "https://api.github.com/repos/apple-PC/macl/releases",
+    "pageViews": "https://busuanzi.ibruce.info"
+  }
+}

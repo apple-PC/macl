@@ -16,25 +16,7 @@
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
 <link rel="stylesheet" href="assets/style.css?v=4">
-<style>
-.afd-bar{position:fixed;left:0;right:0;bottom:0;z-index:2147483646;display:flex;align-items:center;justify-content:center;gap:14px;padding:9px 16px;background:rgba(255,252,248,.97);border-top:1px solid #ffe2c4;box-shadow:0 -2px 14px rgba(255,122,0,.10);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;color:#8a5a1e;}
-.afd-bar .afd-text{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.afd-bar a.afd-link{color:#ff7a00;font-weight:600;text-decoration:none;}
-.afd-bar a.afd-go{margin-left:auto;flex:0 0 auto;background:linear-gradient(135deg,#ffa64d,#ff6a00);color:#fff;padding:7px 16px;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:0 2px 10px rgba(255,106,0,.30);}
-.afd-bar a.afd-go:active{transform:translateY(1px);}
-.afd-modal{position:fixed;inset:0;z-index:2147483647;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(20,12,0,.45);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;}
-.afd-modal.afd-show{display:flex;}
-.afd-card{position:relative;width:min(360px,92vw);background:#fff;border-radius:22px;padding:30px 24px 26px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.28);animation:afdPop .26s cubic-bezier(.2,.8,.3,1.2);}
-@keyframes afdPop{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}
-.afd-card .afd-close{position:absolute;top:12px;right:15px;border:none;background:none;font-size:24px;line-height:1;color:#cfcfcf;cursor:pointer;padding:4px;}
-.afd-card .afd-emoji{font-size:42px;line-height:1;}
-.afd-card h3{margin:10px 0 8px;font-size:19px;color:#2b2b2b;}
-.afd-card p{margin:0 0 20px;font-size:14px;line-height:1.65;color:#6b6b6b;}
-.afd-card p a{color:#ff7a00;font-weight:600;text-decoration:none;}
-.afd-card a.afd-support{display:inline-block;background:linear-gradient(135deg,#ffa64d,#ff6a00);color:#fff;padding:12px 28px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;box-shadow:0 6px 18px rgba(255,106,0,.35);}
-.afd-card a.afd-support:active{transform:translateY(1px);}
-@media(max-width:520px){.afd-bar{font-size:13px;gap:10px;}.afd-bar a.afd-go{padding:6px 12px;}}
-</style>
+
 </head>
 <body>
 
@@ -322,6 +304,28 @@ direct  + official     direct  + <span class="k">mirror</span>
   </div>
 </section>
 
+<!-- ============================================================ 支持 -->
+<section class="support" id="support">
+  <div class="wrap">
+    <div class="support-card" data-reveal>
+      <div class="support-copy">
+        <p class="kicker">支持 Macl</p>
+        <h3>免费，也不打算收费。</h3>
+        <p>没有广告、没有内购，不上传你的账户和游戏数据。唯一需要花钱的地方是 Apple 开发者账号（$99/年）—— 有了它就能给安装包做公证，第一次打开不用再右键「打开」。</p>
+        <p>如果你想帮忙把这件事推过去，可以在爱发电支持。不指望，也不会影响任何功能。</p>
+      </div>
+      <div class="support-action">
+        <a href="https://afdian.com/a/apple-pc" target="_blank" rel="noopener">
+          前往爱发电
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <span>目前只有一个 ¥33.88 / 月的档位</span>
+        <span>Star 仓库、提个 issue，一样有用</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="wrap">
     <div class="row">
@@ -332,8 +336,22 @@ direct  + official     direct  + <span class="k">mirror</span>
         <a href="download/">下载</a>
         <a href="#features">功能</a>
         <a href="#tech">技术</a>
+        <a href="#support">支持</a>
       </div>
     </div>
+
+    <div class="stats-wrap" data-stats-url="assets/stats.json" hidden>
+      <div class="stats">
+      <span>累计下载 <b data-stat="downloads">—</b></span>
+      <i></i>
+      <span>页面访问 <b data-stat="pageViews">—</b></span>
+      <i></i>
+      <span>独立访客 <b data-stat="visitors">—</b></span>
+      <a href="https://github.com/apple-PC/macl/commits/main/assets/stats.json" target="_blank" rel="noopener">数据来源 ↗</a>
+      </div>
+      <p class="stats-note">下载数来自 GitHub Releases，每日存档到本仓库；页面访问与独立访客由不蒜子实时统计。</p>
+    </div>
+
     <p class="sep">
       Macl 是独立开发的第三方启动器，与 Mojang Studios、Microsoft 无任何关联。<br>
       Minecraft 是 Mojang Studios 的商标。使用本软件需要你自行拥有合法的 Minecraft 账户。
@@ -342,30 +360,5 @@ direct  + official     direct  + <span class="k">mirror</span>
 </footer>
 
 <script src="assets/main.js?v=4" defer></script>
-<div class="afd-bar">
-  <span class="afd-text">💛 如果这个项目对你有帮助，欢迎在 <a class="afd-link" href="https://afdian.com/a/apple-pc" target="_blank" rel="noopener">爱发电</a> 支持我</span>
-  <a class="afd-go" href="https://afdian.com/a/apple-pc" target="_blank" rel="noopener">前往支持</a>
-</div>
-<div class="afd-modal" id="afdModal" role="dialog" aria-modal="true">
-  <div class="afd-card">
-    <button class="afd-close" id="afdClose" aria-label="关闭">×</button>
-    <div class="afd-emoji">💛</div>
-    <h3>喜欢我的作品吗？</h3>
-    <p>如果这个网站帮到了你，欢迎在 <a href="https://afdian.com/a/apple-pc" target="_blank" rel="noopener">爱发电</a> 请我喝杯奶茶 ☕<br>你的支持是我继续创作的动力～</p>
-    <a class="afd-support" href="https://afdian.com/a/apple-pc" target="_blank" rel="noopener">前往爱发电支持</a>
-  </div>
-</div>
-<script>
-(function(){
-  try{
-    if(localStorage.getItem('afd_dismissed')==='1') return;
-    var m=document.getElementById('afdModal'); if(!m) return;
-    m.classList.add('afd-show');
-    function close(){ m.classList.remove('afd-show'); try{localStorage.setItem('afd_dismissed','1');}catch(e){} }
-    var c=document.getElementById('afdClose'); if(c) c.onclick=close;
-    m.addEventListener('click',function(e){ if(e.target===m) close(); });
-  }catch(e){}
-})();
-</script>
 </body>
 </html>

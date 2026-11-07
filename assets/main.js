@@ -198,4 +198,103 @@
       }
     });
   });
+
+  /* ------------------------------------------------------------ 真实统计 */
+
+  // 两个真实数据源，绝不写死数字：
+  // - 累计下载：GitHub Releases 的 download_count，服务端每日存档到 stats.json
+  // - 页面访问 / 独立访客：不蒜子实时接口（GitHub 的 traffic API 只统计仓库页，不算 Pages）
+  // 快照先保证首屏有数，实时接口再覆盖成最新值；任何一步失败都保留已有数字。
+  function setStat(key, value) {
+    const n = Number(value);
+    if (!Number.isFinite(n) || n < 0) return;
+    $$('[data-stat="' + key + '"]').forEach((el) => {
+      el.textContent = n.toLocaleString("zh-CN");
+    });
+  }
+
+  function hideIfEmpty(key) {
+    const el = $('[data-stat="' + key + '"]');
+    if (!el || el.textContent !== "—") return;
+    const item = el.closest("span");
+    if (!item) return;
+    const dot = item.previousElementSibling;
+    if (dot && dot.tagName === "I") dot.style.display = "none";
+    item.style.display = "none";
+  }
+
+  async function initStats() {
+    const bar = $(".stats-wrap");
+    if (!bar) return;
+
+    // 1. 仓库里的每日快照：下载数有可核查的历史提交
+    try {
+      const res = await fetch(
+        (bar.dataset.statsUrl || "assets/stats.json") + "?t=" + Date.now(),
+        { cache: "no-store" }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        if (data.downloads && Number.isFinite(Number(data.downloads.total))) {
+          setStat("downloads", data.downloads.total);
+          bar.hidden = false;
+        }
+      }
+    } catch {}
+
+    // 2. 实时下载数：GitHub 公开 API，未认证 60 次/小时，本地缓存半小时
+    try {
+      const cacheKey = "macl_releases_cache";
+      let releases = null;
+      try {
+        const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
+        if (cached && Date.now() - cached.at < 30 * 60 * 1000) releases = cached.data;
+      } catch {}
+      if (!releases) {
+        const res = await fetch("https://api.github.com/repos/apple-PC/macl/releases", {
+          headers: { Accept: "application/vnd.github+json" },
+        });
+        if (res.ok) {
+          releases = await res.json();
+          try {
+            localStorage.setItem(cacheKey, JSON.stringify({ at: Date.now(), data: releases }));
+          } catch {}
+        }
+      }
+      if (Array.isArray(releases)) {
+        const total = releases.reduce(
+          (sum, r) => sum + (r.assets || []).reduce((s, a) => s + (a.download_count || 0), 0),
+          0
+        );
+        setStat("downloads", total);
+        bar.hidden = false;
+      }
+    } catch {}
+
+    // 3. 实时页面访问。不蒜子只认固定回调名 BusuanziCallback，
+    //    而且服务端请求也会算一次 PV——所以这一步只能在浏览器里做，不能放进定时任务。
+    try {
+      window.BusuanziCallback = (data) => {
+        if (!data) return;
+        // 不蒜子在 Referer 缺失或未识别时会返回它自己的全局累计（千万级），
+        // 那不是本站的访问量。超过阈值就丢弃，宁可不显示也不放假数字。
+        const plausible = (n) => Number.isFinite(Number(n)) && Number(n) >= 0 && Number(n) < 1000000;
+        if (plausible(data.site_pv)) setStat("pageViews", data.site_pv);
+        if (plausible(data.site_uv)) setStat("visitors", data.site_uv);
+        bar.hidden = false;
+      };
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback";
+      document.head.appendChild(script);
+    } catch {}
+
+    // 第三方偶发不可用时，把没取到的项安静地收起来，不留一排破折号
+    setTimeout(() => {
+      hideIfEmpty("pageViews");
+      hideIfEmpty("visitors");
+    }, 4500);
+  }
+
+  initStats();
 })();
