@@ -14,7 +14,7 @@
     "source": "busuanzi",
     "sitePv": null,
     "siteUv": null,
-    "note": "由浏览器实时读取；不做服务端抓取，避免制造假访问"
+    "note": "由浏览器实时读取；不做服务端抓取，避免制造假访问。site_uv 实测与 site_pv 同步递增，不作为独立访客展示"
   },
   "history": [
     {

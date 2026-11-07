@@ -280,7 +280,6 @@
         // 那不是本站的访问量。超过阈值就丢弃，宁可不显示也不放假数字。
         const plausible = (n) => Number.isFinite(Number(n)) && Number(n) >= 0 && Number(n) < 1000000;
         if (plausible(data.site_pv)) setStat("pageViews", data.site_pv);
-        if (plausible(data.site_uv)) setStat("visitors", data.site_uv);
         bar.hidden = false;
       };
       const script = document.createElement("script");
@@ -292,7 +291,6 @@
     // 第三方偶发不可用时，把没取到的项安静地收起来，不留一排破折号
     setTimeout(() => {
       hideIfEmpty("pageViews");
-      hideIfEmpty("visitors");
     }, 4500);
   }
 
