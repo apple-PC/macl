@@ -147,3 +147,6 @@ Minecraft 是 Mojang Studios 的商标。使用本软件需要你自行拥有合
 ## 许可
 
 [MIT](LICENSE)。随便用、随便改、随便分发，保留版权声明即可。
+## 💛 支持作者
+
+如果这个项目对你有帮助，欢迎在 [爱发电](https://afdian.com/a/apple-pc) 支持我，你的支持是我继续创作的动力～
