@@ -213,6 +213,15 @@
     });
   }
 
+  function showStat(key) {
+    const el = $('[data-stat="' + key + '"]');
+    const item = el && el.closest("span");
+    if (!item) return;
+    item.style.display = "";
+    const dot = item.previousElementSibling;
+    if (dot && dot.tagName === "I") dot.style.display = "";
+  }
+
   function hideIfEmpty(key) {
     const el = $('[data-stat="' + key + '"]');
     if (!el || el.textContent !== "—") return;
@@ -279,7 +288,11 @@
         // 不蒜子在 Referer 缺失或未识别时会返回它自己的全局累计（千万级），
         // 那不是本站的访问量。超过阈值就丢弃，宁可不显示也不放假数字。
         const plausible = (n) => Number.isFinite(Number(n)) && Number(n) >= 0 && Number(n) < 1000000;
-        if (plausible(data.site_pv)) setStat("pageViews", data.site_pv);
+        if (plausible(data.site_pv)) {
+          setStat("pageViews", data.site_pv);
+          // 第三方偶尔比超时兜底还慢，晚到的数据要把那一格重新显示出来
+          showStat("pageViews");
+        }
         bar.hidden = false;
       };
       const script = document.createElement("script");
@@ -291,7 +304,7 @@
     // 第三方偶发不可用时，把没取到的项安静地收起来，不留一排破折号
     setTimeout(() => {
       hideIfEmpty("pageViews");
-    }, 4500);
+    }, 6000);
   }
 
   initStats();
