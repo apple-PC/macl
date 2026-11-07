@@ -234,7 +234,7 @@
     </div>
 
     <div class="note">
-      <strong>账户：</strong>目前只支持离线账户 —— 起个名字就能玩单人模式和局域网。微软正版登录的数据结构与钥匙串通道已经写好，界面还没做，
+      <strong>账户：</strong>目前只支持离线账户 —— 起个名字就能玩单人模式和局域网。微软正版登录还没做：令牌的 Keychain 保管已经写好，但 OAuth 登录流程和界面都没做，
       这一版先不发。如果你只玩单机与自建服务器，离线账户足够了。
     </div>
   </div>
@@ -245,7 +245,7 @@
   <div class="wrap-narrow">
     <h2 data-reveal>这一版还没有的东西</h2>
     <table class="spec-table">
-      <tr><th>微软账户登录</th><td>数据结构与 Keychain 通道已就位，UI 未做</td></tr>
+      <tr><th>微软账户登录</th><td>令牌的 Keychain 保管已实现，但 OAuth 登录流程与界面未做</td></tr>
       <tr><th>自动更新</th><td>新版本需要手动下载覆盖。应用本身不联网检查更新</td></tr>
       <tr><th>Apple 公证</th><td>没有。首次打开需要右键，见上方安装步骤</td></tr>
       <tr><th> CurseForge 冷门 mod</th><td>官方 API 被 Cloudflare 拦，走社区镜像（cfwidget）补链。热门包秒下，冷门包首次查询可能排队几十秒</td></tr>
