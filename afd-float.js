@@ -11,10 +11,12 @@
   var AFD_URL = 'https://afdian.com/a/apple-pc';
 
   // 移除旧的「爱发电」橙色模板挂件（固定底栏 + 弹窗 + 驱动脚本）
+  // 注意：只精确匹配旧挂件的类名/id，切勿用 [id^="afd"] 这类通配，
+  // 否则会误伤本浮窗的根节点 #afdf-root（同样以 afd 开头）。
   function removeOld() {
     try {
       var nodes = document.querySelectorAll(
-        '.afd-bar, .afd-modal, #afdModal, #afdClose, #afdBtn, .afd-card, .afd-go, .afd-link, [class*="afd-bar"], [class*="afd-modal"], [id^="afd"]'
+        '.afd-bar, .afd-modal, .afd-card, .afd-go, .afd-link, #afdModal, #afdClose, #afdBtn'
       );
       for (var i = 0; i < nodes.length; i++) {
         if (nodes[i] && nodes[i].parentNode) nodes[i].parentNode.removeChild(nodes[i]);
@@ -102,9 +104,6 @@
         fab.setAttribute('aria-expanded', 'false');
       }
     });
-
-    // 旧挂件若是异步注入，再清一次
-    setTimeout(removeOld, 0);
   }
 
   if (document.readyState === 'loading') {
