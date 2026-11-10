@@ -4,14 +4,13 @@
  * 接入方式：在页面 </body> 前加一行
  *   <script defer src="https://apple-pc.github.io/macl/afd-float.js"></script>
  * 本脚本加载时会自动移除旧的 .afd-bar / .afd-modal 旧挂件。
- * 用户可点关闭按钮隐藏，按站点（路径）记忆，不再出现。
+ * 用户可点关闭按钮隐藏；硬刷新页面后浮窗会自动还原（不做永久记忆）。
  */
 (function () {
   'use strict';
 
   var AFD_URL = 'https://afdian.com/a/apple-pc';
-  // 按站点路径独立记忆关闭状态（同域不同路径互不干扰）
-  var CLOSED_KEY = 'afd_float_closed_' + (location.pathname || '/');
+  // 关闭仅移除当前浮窗 DOM；不做永久记忆，硬刷新即可还原。
 
   // 移除旧的「爱发电」橙色模板挂件（固定底栏 + 弹窗 + 驱动脚本）
   // 只精确匹配旧挂件的类名/id；切勿用 [id^="afd"] 这类通配，
@@ -53,8 +52,7 @@
   var HEART = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-10-9.2C.4 8.3 1.7 4.8 5 4.1c2-.4 3.8.6 4.9 2.1.5.7.9 1.3 1.1 1.6.2-.3.6-.9 1.1-1.6C13.2 4.7 15 3.7 17 4.1c3.3.7 4.6 4.2 3 7.7C19.5 16.4 12 21 12 21z"/></svg>';
 
   function build() {
-    // 已在本站点关闭过则不渲染
-    try { if (localStorage.getItem(CLOSED_KEY) === '1') return; } catch (e) {}
+    // 关闭状态不持久化：每次加载都重新渲染（硬刷新可还原）
 
     removeOld();
     if (document.getElementById('afdf-root')) return;
@@ -113,7 +111,6 @@
     if (closeBtn) {
       closeBtn.addEventListener('click', function (e) {
         e.stopPropagation();
-        try { localStorage.setItem(CLOSED_KEY, '1'); } catch (_) {}
         if (root.parentNode) root.parentNode.removeChild(root);
       });
     }
