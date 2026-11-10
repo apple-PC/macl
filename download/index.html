@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <script>document.documentElement.classList.remove("no-js");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>下载 Macl 1.3 — 为 Mac 而生的 Minecraft 启动器</title>
-<meta name="description" content="下载 Macl 1.3。13 MB，macOS 14 及以上，Apple Silicon 与 Intel 通用。">
+<title>下载 Macl 1.3.2 — 为 Mac 而生的 Minecraft 启动器</title>
+<meta name="description" content="下载 Macl 1.3.2。13 MB，macOS 14 及以上，Apple Silicon 与 Intel 通用。">
 <meta name="theme-color" content="#000000">
-<meta property="og:title" content="下载 Macl 1.3 — 为 Mac 而生的 Minecraft 启动器">
+<meta property="og:title" content="下载 Macl 1.3.2 — 为 Mac 而生的 Minecraft 启动器">
 <meta property="og:description" content="13 MB，macOS 14 及以上，Apple Silicon 与 Intel 通用。">
 <meta property="og:image" content="https://apple-pc.github.io/macl/assets/icon.png">
 <meta property="og:url" content="https://apple-pc.github.io/macl/download/">
@@ -31,7 +31,7 @@
       <a href="#java">Java</a>
       <a href="../#numbers">规格</a>
     </div>
-    <a class="nav-cta" href="../downloads/Macl-1.3.zip">下载</a>
+    <a class="nav-cta" href="../downloads/Macl-1.3.2.zip">下载</a>
   </div>
 </nav>
 
@@ -50,10 +50,10 @@
 <div class="dl-card rise" style="--d:170ms">
   <img class="icon" src="../assets/icon.png" alt="Macl">
   <div class="dl-info">
-    <h2>Macl 1.3</h2>
-    <p class="meta">2026 年 11 月 7 日 · 13 MB（压缩后 4 MB）· 通用二进制</p>
+    <h2>Macl 1.3.2</h2>
+    <p class="meta">2026 年 11 月 10 日 · 13 MB（压缩后 4 MB）· 通用二进制</p>
     <div class="dl-actions">
-      <a class="btn btn-blue" href="../downloads/Macl-1.3.zip" download>
+      <a class="btn btn-blue" href="../downloads/Macl-1.3.2.zip" download>
         下载 .zip
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
       </a>
@@ -63,15 +63,14 @@
   </div>
 </div>
 
-<!-- ============================================================ 1.3 变化 -->
+<!-- ============================================================ 1.3.2 变化 -->
 <section class="section-pad">
   <div class="wrap-narrow">
-    <h2 data-reveal>1.3 多了什么</h2>
+    <h2 data-reveal>1.3.2 多了什么</h2>
     <table class="spec-table">
-      <tr><th>导入前适配预检</th><td>导入预览页先离线检查包内 mod 的元数据：加载器冲突、游戏版本、缺前置、重复 mod、只带 Windows 原生库的 jar。阻断级问题要确认风险才能继续；要联网下载的 mod 会标明「装完才能检查」，不虚报</td></tr>
-      <tr><th>网络画像与诊断</th><td>下载线路的成败与耗时记进本机画像，被墙的源连败几次自动沉底。设置页能回答「为什么这次走镜像」，日志页把报错翻成「哪一步坏了、该怎么办」，还能一键重新探测</td></tr>
-      <tr><th>导出彻底修好</th><td>修掉两个潜伏 bug：导出的 .mrpack 多了层目录名、Modrinth 查询响应形状不对会直接崩。现在导出完自动做离线校验，结构、路径越界、哈希都会查一遍</td></tr>
-      <tr><th>大包不再干等</th><td>CurseForge 的 mod 解析改成每批 6 个并发，几十个 mod 的整合包不再一个个串行查询</td></tr>
+      <tr><th>导入即装</th><td>导入整合包后，若本机还没装对应的游戏版本，Macl 会立刻自动补齐客户端、依赖库和资源文件，不用再等到点启动才报「缺东西」。进度实时显示在导入进度条里</td></tr>
+      <tr><th>导入更稳</th><td>装游戏版本这一步如果中途断了，只会给一条提示，已经铺好的 mod 不受影响；下次启动前会自动补，也能在实例设置里手动「安装 / 校验游戏版本」</td></tr>
+      <tr><th>为跨平台铺路</th><td>内部结构做了收敛，把平台相关能力抽象成统一接口，以后做 Windows / Linux 版能少改很多代码。这一版用起来和之前没有区别</td></tr>
     </table>
   </div>
 </section>
@@ -99,7 +98,7 @@
         <span class="no">01</span>
         <div>
           <h3>解压下载的压缩包</h3>
-          <p>双击 <code>Macl-1.3.zip</code>，会得到一个 <code>Macl.app</code>。</p>
+          <p>双击 <code>Macl-1.3.2.zip</code>，会得到一个 <code>Macl.app</code>。</p>
         </div>
       </div>
 
@@ -245,7 +244,7 @@
   <div class="wrap-narrow">
     <h2 data-reveal>这一版还没有的东西</h2>
     <table class="spec-table">
-      <tr><th>微软账户登录</th><td>令牌的 Keychain 保管已实现，但 OAuth 登录流程与界面未做</td></tr>
+      <tr><th>微软账户登录</th><td>登录代码（OAuth 流程 + Keychain 令牌保管）已实现，但需要在 Azure 注册应用并填入 clientID 才能启用，本期暂不开放</td></tr>
       <tr><th>自动更新</th><td>新版本需要手动下载覆盖。应用本身不联网检查更新</td></tr>
       <tr><th>Apple 公证</th><td>没有。首次打开需要右键，见上方安装步骤</td></tr>
       <tr><th> CurseForge 冷门 mod</th><td>官方 API 被 Cloudflare 拦，走社区镜像（cfwidget）补链。热门包秒下，冷门包首次查询可能排队几十秒</td></tr>
@@ -261,10 +260,10 @@
       下载完成后，可以在终端里核对 SHA-256。与下面一致，说明文件完整。
     </p>
     <div class="cmd">
-      <span>shasum -a 256 ~/Downloads/Macl-1.3.zip</span>
-      <button data-copy="shasum -a 256 ~/Downloads/Macl-1.3.zip">复制</button>
+      <span>shasum -a 256 ~/Downloads/Macl-1.3.2.zip</span>
+      <button data-copy="shasum -a 256 ~/Downloads/Macl-1.3.2.zip">复制</button>
     </div>
-    <p class="hash" style="margin-top:16px">4519bf695d20f1e890b3d0beb94c00ccf0582219952589a9f996593f0e36235e</p>
+    <p class="hash" style="margin-top:16px">716535bf23b22d8ab83bcc3463fe91675b39391032a733d8280fde7640c7959a</p>
   </div>
 </section>
 
@@ -274,7 +273,7 @@
       <div><strong style="color:var(--dim);font-weight:500">Macl</strong> · 用 Swift 写成 · 2026</div>
       <div style="display:flex;gap:22px">
         <a href="../">首页</a>
-        <a href="../downloads/Macl-1.3.zip">下载</a>
+        <a href="../downloads/Macl-1.3.2.zip">下载</a>
         <a href="../#support">支持</a>
       </div>
     </div>
