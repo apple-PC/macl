@@ -1,9 +1,10 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-07T19:31:59+08:00",
+  "updatedAt": "2026-11-11T15:44:54+08:00",
   "downloads": {
-    "total": 7,
+    "total": 8,
     "byRelease": {
+      "v1.3.2": 1,
       "v1.3": 2,
       "v1.2": 2,
       "v1.1": 1,
@@ -20,6 +21,10 @@
     {
       "date": "2026-11-07",
       "downloads": 7
+    },
+    {
+      "date": "2026-11-11",
+      "downloads": 8
     }
   ],
   "sources": {
