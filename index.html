@@ -5,10 +5,10 @@
 <script>document.documentElement.classList.remove("no-js");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Macl — 为 Mac 而生的 Minecraft 启动器</title>
-<meta name="description" content="Mac 上的 Minecraft 启动器，Swift + AppKit 写的。13 MB，自动配 Java，官方与国内镜像双源下载。">
+<meta name="description" content="Mac 平台原生 Minecraft 启动器，基于 Swift 与 AppKit 开发，安装包仅 13 MB。支持 Java 自动匹配，官方与国内镜像双通道下载。">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="Macl — 为 Mac 而生的 Minecraft 启动器">
-<meta property="og:description" content="Swift 和 AppKit 写的，13 MB。下载解压就能用。">
+<meta property="og:description" content="基于 Swift 与 AppKit 原生开发，安装包仅 13 MB，下载解压即可使用。">
 <meta property="og:image" content="https://apple-pc.github.io/macl/assets/icon.png">
 <meta property="og:url" content="https://apple-pc.github.io/macl/">
 <link rel="canonical" href="https://apple-pc.github.io/macl/">
@@ -44,7 +44,7 @@
       <span class="badge rise" style="--d:0ms"><i class="dot"></i>Macl 1.3.2 · 现已发布</span>
       <h1 class="rise" style="--d:80ms">为 Mac 而生的<br><em>Minecraft 启动器</em></h1>
       <p class="lede rise" style="--d:170ms">
-        Swift 和 AppKit 写的。13 MB，打开就是 macOS 的窗口，中间没夹一层网页。
+        基于 Swift 与 AppKit 原生开发，安装包仅 13 MB。启动后即呈现标准 macOS 窗口，不依赖任何内嵌浏览器或网页层。
       </p>
       <div class="hero-actions rise" style="--d:260ms">
         <a class="btn btn-primary" href="download/">
@@ -76,20 +76,20 @@
     <div class="claims">
       <article class="claim" data-reveal>
         <span class="num">01 — 零依赖</span>
-        <h3>解压 ZIP 的代码是我自己写的。</h3>
-        <p>系统自带 libz，直接调 inflate，两百来行。为这点事拖一个第三方包进来不划算：依赖会打架，还可能在某次系统更新后悄悄挂掉，而你根本不知道是它干的。</p>
+        <h3>压缩包解压由本软件自行实现。</h3>
+        <p>直接调用系统自带的 libz 完成 inflate 解压，代码约两百行。因此无需引入第三方依赖——依赖之间可能产生冲突，亦可能于系统更新后悄然失效且难以追溯，本方案从源头规避了这类风险，行为在任何 Mac 上都可预期。</p>
       </article>
 
       <article class="claim" data-reveal>
         <span class="num">02 — Java</span>
-        <h3>每个实例，自己认领一个 Java。</h3>
-        <p>版本 JSON 要 21 就去全机找 21。找不到才退一步用 22，并且把这句话摆在界面上：「本机没有正好 Java 21 的运行时，改用 Java 22」。不是闷着头替你换一个。</p>
+        <h3>每个实例独立匹配 Java 运行时。</h3>
+        <p>依据版本 JSON 中声明的版本要求在本机检索对应运行时，例如要求 21 即查找 21。若未找到，方才回退至 22，并在界面明确提示「本机没有正好 Java 21 的运行时，改用 Java 22」。一切替换均对用户透明，不会静默变更。</p>
       </article>
 
       <article class="claim" data-reveal>
         <span class="num">03 — 自愈</span>
-        <h3>崩过几次，才学会自己修。</h3>
-        <p>版本 JSON 对不上就重下，依赖库缺了就补，缓存读坏了就扔掉。这些都不该让你看见 —— 你按启动，它开起来，就这样。</p>
+        <h3>具备自我修复能力。</h3>
+        <p>版本 JSON 不匹配即重新下载，依赖库缺失即自动补齐，缓存损坏即丢弃重建。这些恢复动作均在后台完成，用户只需点击启动，即可直接进入游戏。</p>
       </article>
     </div>
   </div>
@@ -98,9 +98,9 @@
 <!-- ============================================================ 功能 -->
 <section class="features" id="features">
   <div class="wrap">
-    <h2 data-reveal>它大概能干这些。</h2>
+    <h2 data-reveal>核心功能一览。</h2>
     <p class="sub" data-reveal style="--delay:80ms">
-      装好、配好、启动、日志留着。就这四件事，做扎实。
+      安装、配置、启动与日志留存——四项基础能力，均已打磨到位。
     </p>
 
     <div class="bento">
@@ -108,10 +108,10 @@
         <div class="card-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 9v11"/></svg>
         </div>
-        <h3>原生界面，不是网页套壳</h3>
+        <h3>原生界面，而非网页套壳</h3>
         <p class="card-text">
-          侧栏、页签、工具栏都是系统控件。切深色模式、全屏、分屏、改系统字号，它跟着一起变 ——
-          因为它本来就是 AppKit 的一部分，不是画在上面的一层。
+          侧边栏、标签页与工具栏均采用系统原生控件。切换深色模式、进入全屏、分屏或调整系统字号时，界面会随之同步更新——
+          因其本身即 AppKit 的一部分，而非叠加于网页之上的渲染层。
         </p>
         <div class="tag-row">
           <span class="tag">SwiftUI</span>
@@ -125,7 +125,7 @@
         <div class="card-num"><span data-target="13.3" data-decimals="1">0</span> MB</div>
         <h3>整个安装包</h3>
         <p class="card-text">
-          运行时、字体、浏览器内核一样都没打包。下载完拖进「应用程序」，双击，就这样。
+          运行时、字体与浏览器内核均未打包。下载完成后拖入「应用程序」文件夹，双击即可运行。
         </p>
         <div class="tag-row">
           <span class="tag">通用二进制</span>
@@ -136,8 +136,8 @@
 
       <article class="card" data-reveal>
         <div class="card-num"><span data-target="921">0</span></div>
-        <h3>个版本，随你挑</h3>
-        <p class="card-text">Alpha 时代的版本也还在。加载器装好之后还能换版本、换类型、退回原版，存档不用搬。</p>
+        <h3>个版本，自由选用</h3>
+        <p class="card-text">自 Alpha 时代起的版本均可安装。加载器安装完成后，仍可在版本、类型之间切换，或退回原版，存档无需迁移。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:80ms">
@@ -145,7 +145,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z"/><path d="M16 10h2a2 2 0 1 1 0 4h-2"/><path d="M7 3v2M11 3v2"/></svg>
         </div>
         <h3>Java 自动匹配</h3>
-        <p class="card-text">按版本 JSON 里写的要求找，读 JVM 自己上报的 <code>java.home</code>。Homebrew 那种符号链接也骗不过它。</p>
+        <p class="card-text">依据版本 JSON 中的要求检索，并读取 JVM 自行上报的 <code>java.home</code>。即便是 Homebrew 形式的符号链接亦无法干扰识别结果。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:160ms">
@@ -153,31 +153,31 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
         </div>
         <h3>官方目录结构</h3>
-        <p class="card-text">saves、mods、resourcepacks 和官方启动器一模一样。哪天不想用了，官方启动器或 HMCL 直接接手，存档不用搬。</p>
+        <p class="card-text">saves、mods、resourcepacks 目录与官方启动器完全一致。如需更换启动器，官方启动器或 HMCL 均可直接接管，存档无需迁移。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:160ms">
         <div class="card-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 13.6c2.8.3 4.5 2.2 4.5 4.9"/></svg>
         </div>
-        <h3>联机不用碰路由器</h3>
-        <p class="card-text">内置陶瓦联机。房主把世界对局域网开放，回来点一下创建房间，把邀请码发过去就行 —— 不用公网 IP，也不用在路由器上开端口。</p>
+        <h3>联机无需配置路由器</h3>
+        <p class="card-text">内置陶瓦联机。房主将世界开放为局域网后，点击创建房间并分享邀请码即可 —— 无需公网 IP，亦无需在路由器上开放端口。</p>
       </article>
 
       <article class="card" data-reveal style="--delay:160ms">
         <div class="card-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/><path d="M3 8l2.5-4h13L21 8"/><path d="M3 8h18"/><path d="M10 12h4"/></svg>
         </div>
-        <h3>整合包，拖进来就能玩</h3>
-        <p class="card-text">CurseForge 和 Modrinth 的包直接导入：自动装 NeoForge、按国内镜像补下 mod，连存档一起搬进来。也能导出成 <code>.mrpack</code> 发给朋友。</p>
+        <h3>整合包，导入即可游玩</h3>
+        <p class="card-text">来自 CurseForge 与 Modrinth 的整合包可直接导入：自动安装 NeoForge，并依据国内镜像补齐缺失的 mod，存档一并迁入。亦可导出为 <code>.mrpack</code> 分享给好友。</p>
       </article>
 
       <article class="card card-wide" data-reveal>
         <div class="card-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 2 2-2 2M12 13h4"/></svg>
         </div>
-        <h3>崩了也能看到为什么</h3>
-        <p class="card-text">stdout 和 stderr 全进日志，连实际执行的那条命令行都存着。不是黑一下，然后让你猜。</p>
+        <h3>崩溃原因可追溯</h3>
+        <p class="card-text">stdout 与 stderr 均完整写入日志，连实际执行的命令行本身亦一并保留。运行结果可查，无需猜测。</p>
         <div class="tag-row">
           <span class="tag">实时输出</span>
           <span class="tag">命令行原文</span>
@@ -187,9 +187,9 @@
       </article>
 
       <article class="card card-wide dark" data-reveal style="--delay:80ms">
-        <h3 style="margin-bottom:14px">启动前，先自己检查一遍</h3>
+        <h3 style="margin-bottom:14px">启动前，先完成自检</h3>
         <p class="card-text" style="margin-bottom:0">
-          Java、依赖库、资源索引，缺哪个、缺多少个，直接写在卡片里。
+          Java、依赖库与资源索引的缺失项及数量，均直接呈现在卡片中。
         </p>
         <div class="card-shot">
           <img src="assets/shot-overview.png" width="2240" height="1516" alt="启动前自检" loading="lazy">
@@ -199,8 +199,8 @@
 
     <div class="gallery">
       <div class="gallery-head">
-        <h3 data-reveal>再看两眼界面。</h3>
-        <p data-reveal style="--delay:70ms">新建实例、实例设置、联机。真截图，没有重绘，也没有把光标 P 掉。</p>
+        <h3 data-reveal>界面实拍。</h3>
+        <p data-reveal style="--delay:70ms">新建实例、实例设置与联机界面。均为真实截图，未经重绘，光标亦未作处理。</p>
       </div>
       <div class="gallery-grid">
         <figure class="shot" data-reveal>
@@ -228,23 +228,23 @@
   <div class="wrap">
     <div class="tech-grid">
       <div class="tech-left">
-        <p class="kicker">踩过的坑</p>
+        <p class="kicker">工程细节</p>
         <h2>这些细节不会出现在截图上。</h2>
-        <p>截图上看不见，用起来能感觉到。下面几件是写的时候真踩过的。</p>
+        <p>截图难以呈现，使用体验中却能感知。以下为开发过程中切实处理过的几处关键细节。</p>
         <div class="tech-progress"><i></i></div>
       </div>
 
       <div class="tech-list">
         <article class="tech-item">
           <span class="idx">01</span>
-          <h3>自己解压 ZIP</h3>
-          <p>系统自带 libz，调 inflate 就够。多写了大概两百行，换来的是不需要任何第三方包 —— 装到哪台 Mac 上，行为都一样。</p>
+          <h3>自行实现 ZIP 解压</h3>
+          <p>直接调用系统自带的 libz 完成 inflate 解压，额外编写约两百行代码，从而无需任何第三方依赖包——无论部署于哪台 Mac，行为表现均保持一致。</p>
         </article>
 
         <article class="tech-item">
           <span class="idx">02</span>
-          <h3>两条通道，两个源，四路竞速</h3>
-          <p>系统代理和直连同时发，官方和国内镜像同时发。谁先回，后面全走它。这台机器上系统 PAC 解析不通，URLSession 每个请求要卡满 21 秒；改成四路竞速之后是 0.7 秒。</p>
+          <h3>双通道、双源、四路竞速</h3>
+          <p>系统代理与直连并发，官方源与国内镜像并发。率先响应的链路即被采用。在一台系统 PAC 解析异常的机器上，URLSession 单次请求曾耗时 21 秒；引入四路竞速后降至 0.7 秒。</p>
           <div class="code"><span class="c">// 四路并发，先到先得</span>
 proxy   + official     proxy   + <span class="k">mirror</span>
 direct  + official     direct  + <span class="k">mirror</span>
@@ -253,14 +253,14 @@ direct  + official     direct  + <span class="k">mirror</span>
 
         <article class="tech-item">
           <span class="idx">03</span>
-          <h3>原样保存 Mojang 的字节</h3>
-          <p>版本 JSON 原样落盘，不 decode 再 encode。我试过走 Codable 往返，结果枚举编码出来的结构变了，自己都读不回来，官方启动器和 HMCL 更认不出。现在一个字节都不动。</p>
+          <h3>原样保留 Mojang 数据字节</h3>
+          <p>版本 JSON 直接落盘，不做 decode 再 encode。曾尝试经 Codable 往返，结果枚举编码后的结构发生变化，自身已无法读回，官方启动器与 HMCL 更无法识别。现保持字节级不变。</p>
         </article>
 
         <article class="tech-item">
           <span class="idx">04</span>
-          <h3>普通库，不手动解压</h3>
-          <p>1.19 之后 natives 变成带 classifier 的普通库，直接挂在 classpath 上，LWJGL 自己会把 dylib 抽出来。我一开始多此一举解压了一遍，后来发现官方启动器根本不这么干。</p>
+          <h3>普通库，不作手动解压</h3>
+          <p>1.19 之后，natives 转为带 classifier 的普通库，直接挂载于 classpath，由 LWJGL 自行抽取 dylib。早期曾作多余的解压处理，后确认官方启动器并无此步骤。</p>
         </article>
       </div>
     </div>
@@ -295,8 +295,8 @@ direct  + official     direct  + <span class="k">mirror</span>
 <section class="cta">
   <div class="cta-watermark">Macl</div>
   <div class="wrap-narrow">
-    <h2 data-reveal>把它下载下来。</h2>
-    <p data-reveal style="--delay:80ms">4 MB。解压，拖进「应用程序」，双击。没有安装器，也不用注册账号。</p>
+      <h2 data-reveal>立即下载。</h2>
+      <p data-reveal style="--delay:80ms">压缩包 4 MB。解压后拖入「应用程序」文件夹并双击即可，无需安装程序，亦无需注册账号。</p>
     <a class="btn btn-blue" href="download/" data-reveal style="--delay:150ms">
       下载 Macl 1.3.2
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
@@ -310,17 +310,17 @@ direct  + official     direct  + <span class="k">mirror</span>
     <div class="support-card" data-reveal>
       <div class="support-copy">
         <p class="kicker">支持 Macl</p>
-        <h3>免费，也不打算收费。</h3>
-        <p>没有广告、没有内购，不上传你的账户和游戏数据。唯一需要花钱的地方是 Apple 开发者账号（$99/年）—— 有了它就能给安装包做公证，第一次打开不用再右键「打开」。</p>
-        <p>如果你想帮忙把这件事推过去，可以在爱发电支持。不指望，也不会影响任何功能。</p>
+        <h3>永久免费，且无收费计划。</h3>
+        <p>不含广告与内购，亦不会上传用户的账户或游戏数据。唯一涉及费用之处为 Apple 开发者账号（$99/年）—— 完成认证后，安装包即可获得公证，首次打开无需再次右键「打开」。</p>
+        <p>如您愿意支持项目发展，可通过爱发电进行赞助。赞助与否均不影响任何功能。</p>
       </div>
       <div class="support-action">
         <a href="https://afdian.com/a/apple-pc" target="_blank" rel="noopener">
           前往爱发电
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
-        <span>目前只有一个 ¥33.88 / 月的档位</span>
-        <span>Star 仓库、提个 issue，一样有用</span>
+        <span>目前提供 ¥33.88 / 月的赞助档位</span>
+        <span>为仓库加星标或提交 Issue，同样是对项目的支持</span>
       </div>
     </div>
   </div>
@@ -330,7 +330,7 @@ direct  + official     direct  + <span class="k">mirror</span>
   <div class="wrap">
     <div class="row">
       <div>
-        <strong style="color:var(--dim);font-weight:500">Macl</strong> · 用 Swift 写成 · 2026
+        <strong style="color:var(--dim);font-weight:500">Macl</strong> · 基于 Swift 开发 · 2026
       </div>
       <div style="display:flex;gap:22px">
         <a href="download/">下载</a>
@@ -352,7 +352,7 @@ direct  + official     direct  + <span class="k">mirror</span>
 
     <p class="sep">
       Macl 是独立开发的第三方启动器，与 Mojang Studios、Microsoft 无任何关联。<br>
-      Minecraft 是 Mojang Studios 的商标。使用本软件需要你自行拥有合法的 Minecraft 账户。
+      Minecraft 是 Mojang Studios 的商标。使用本软件需用户自行拥有合法的 Minecraft 账户。
     </p>
   </div>
 </footer>

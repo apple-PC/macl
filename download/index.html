@@ -43,7 +43,7 @@
       返回首页
     </a>
     <h1 class="rise">下载 Macl</h1>
-    <p class="rise" style="--d:90ms">一个 4 MB 的压缩包，解压即用。</p>
+    <p class="rise" style="--d:90ms">一个 4 MB 的压缩包，解压即可使用。</p>
   </div>
 </header>
 
@@ -59,7 +59,7 @@
       </a>
       <a class="btn btn-ghost" href="#install">怎么安装</a>
     </div>
-    <p class="meta" style="margin-top:12px">装不上或者想回旧版？<a href="https://github.com/apple-PC/macl/releases" style="color:var(--blue-soft)">所有版本都在 Releases</a>。</p>
+    <p class="meta" style="margin-top:12px">若安装失败或需回退至旧版，<a href="https://github.com/apple-PC/macl/releases" style="color:var(--blue-soft)">所有历史版本均可在 Releases 中获取</a>。</p>
   </div>
 </div>
 
@@ -68,9 +68,9 @@
   <div class="wrap-narrow">
     <h2 data-reveal>1.3.2 多了什么</h2>
     <table class="spec-table">
-      <tr><th>导入即装</th><td>导入整合包后，若本机还没装对应的游戏版本，Macl 会立刻自动补齐客户端、依赖库和资源文件，不用再等到点启动才报「缺东西」。进度实时显示在导入进度条里</td></tr>
-      <tr><th>导入更稳</th><td>装游戏版本这一步如果中途断了，只会给一条提示，已经铺好的 mod 不受影响；下次启动前会自动补，也能在实例设置里手动「安装 / 校验游戏版本」</td></tr>
-      <tr><th>为跨平台铺路</th><td>内部结构做了收敛，把平台相关能力抽象成统一接口，以后做 Windows / Linux 版能少改很多代码。这一版用起来和之前没有区别</td></tr>
+      <tr><th>导入即装</th><td>导入整合包后，若本机尚未安装对应的游戏版本，Macl 将自动补齐客户端、依赖库与资源文件，无需待至启动时方才报错。进度实时呈现在导入进度条中</td></tr>
+      <tr><th>导入更稳</th><td>若游戏版本安装过程中断，仅提示一条信息，已部署的 mod 不受影响；下次启动前将自动补齐，亦可在实例设置中手动执行「安装 / 校验游戏版本」</td></tr>
+      <tr><th>为跨平台铺路</th><td>内部结构已完成收敛，将平台相关能力抽象为统一接口，后续开发 Windows / Linux 版本时可显著减少代码改动。本版本的使用体验与此前保持一致</td></tr>
     </table>
   </div>
 </section>
@@ -115,8 +115,8 @@
         <div>
           <h3>第一次打开：右键 → 打开</h3>
           <p>
-            Macl 没有经过 Apple 公证（个人开发者，一年 99 美元的开发者账号还没买）。直接双击会被 Gatekeeper 拦下，
-            提示「无法验证开发者」。这不是病毒警告，是「我没见过它」。
+            Macl 尚未通过 Apple 公证（个人开发者，每年 99 美元的开发者账号尚未购买）。直接双击会被 Gatekeeper 拦截，
+            提示「无法验证开发者」。此提示并非病毒警告，而是系统对未登记应用的常规提醒。
           </p>
           <p><strong style="color:var(--ink)">方法一：</strong>在 Finder 里按住 <kbd>Control</kbd> 点按 Macl，选「打开」，再确认一次。之后就能正常双击了。</p>
           <p><strong style="color:var(--ink)">方法二：</strong>在「终端」里跑一行命令，去掉下载隔离标记：</p>
@@ -129,9 +129,9 @@
     </div>
 
     <div class="note">
-      <strong>为什么会被拦？</strong>
-      macOS 对从网络下载的、没有 Apple 公证的应用一律提示「无法验证开发者」。Macl 使用 ad-hoc 签名并开启了
-      Hardened Runtime，代码是完整的、没有被篡改 —— 只是没有向 Apple 购买那张证书。上面两种方式都能正常打开。
+      <strong>为何会被拦截？</strong>
+      macOS 对自网络下载、且未经 Apple 公证的应用一律提示「无法验证开发者」。Macl 采用 ad-hoc 签名并启用了
+      Hardened Runtime，代码完整、未经篡改——仅缺少向 Apple 购买的证书。以上两种方式均可正常打开。
     </div>
   </div>
 </section>
@@ -139,10 +139,10 @@
 <!-- ============================================================ Java -->
 <section class="section-pad" id="java">
   <div class="wrap-narrow">
-    <h2 data-reveal>先装个 Java</h2>
+    <h2 data-reveal>先安装 Java 运行时</h2>
     <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-bottom:20px">
-      Macl 不捆绑 Java，用的是你系统里已经有的一份。所以第一次打开之前，先确认有没有。
-      在「终端」里跑这一行：
+      Macl 不捆绑 Java，使用系统中已有的运行时。因此首次打开前，请先确认是否已安装。
+      在「终端」中执行以下命令：
     </p>
 
     <div class="cmd">
@@ -151,14 +151,14 @@
     </div>
 
     <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-top:18px">
-      列出一串版本号（17、21 之类）就说明有，直接跳到下一节。如果提示
-      <code>Unable to find any JVM</code>，那就是真没装，接着往下看。
+      若列出一连串版本号（如 17、21），即表示已安装，可直接进入下一节。若提示
+      <code>Unable to find any JVM</code>，则表示尚未安装，请继续向下阅读。
     </p>
 
-    <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:44px 0 14px">去 Oracle 下</h3>
+    <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:44px 0 14px">前往 Oracle 下载</h3>
     <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-bottom:16px">
       下载页在这：<a href="https://www.oracle.com/java/technologies/downloads/#java21-mac" target="_blank" rel="noopener" style="color:var(--blue-soft)">oracle.com/java/technologies/downloads</a>。
-      找到 JDK 21 那一栏，按自己的芯片选 DMG：
+      定位至 JDK 21 一行，并依据芯片类型选择对应的 DMG 安装包：
     </p>
 
     <table class="spec-table">
@@ -175,18 +175,18 @@
     </table>
 
     <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-top:18px">
-      双击 dmg，一路下一步。装完不用配 <code>JAVA_HOME</code>，也不用改 <code>PATH</code> ——
-      Macl 自己去 <code>/Library/Java/JavaVirtualMachines</code> 底下数。
+      双击 dmg 并按提示完成安装。安装后无需配置 <code>JAVA_HOME</code>，亦无需修改 <code>PATH</code>——
+      Macl 会自动检索 <code>/Library/Java/JavaVirtualMachines</code> 目录。
     </p>
 
     <div class="note">
-      <strong>Oracle 现在得登录账号才能下。</strong>
-      嫌麻烦的话用 Adoptium 的 Temurin，同一套 OpenJDK 的免费构建，下载不要账号：
+      <strong>Oracle 现需登录账号方可下载。</strong>
+      若希望免去注册步骤，可采用 Adoptium 的 Temurin——同为 OpenJDK 的免费构建，且无需账号：
       <a href="https://adoptium.net/temurin/releases/?version=21" target="_blank" rel="noopener" style="color:var(--blue-soft)">adoptium.net</a>。
-      装哪个 Macl 都认。
+      无论安装哪一个，Macl 均可识别。
     </div>
 
-    <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:44px 0 14px">哪个版本要哪个 Java</h3>
+    <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:44px 0 14px">各版本对应的 Java 版本</h3>
     <table class="spec-table">
       <tr><th>1.20.5 及以后</th><td>Java 21</td></tr>
       <tr><th>1.18 – 1.20.4</th><td>Java 17</td></tr>
@@ -195,9 +195,9 @@
     </table>
 
     <p style="color:var(--dim);font-size:15px;line-height:1.75;margin-top:18px">
-      只玩新版的话，装一个 JDK 21 就够。想开 1.16 或更早，还得再装个 JDK 8 ——
-      Oracle 页面往下拉能翻到，注意它的包名是 <code>macosx</code> 不是 <code>macos</code>。
-      几个版本同时装着不会打架，Macl 会按实例挑。
+      若仅游玩较新版本，安装一个 JDK 21 即可。如需运行 1.16 或更早版本，则需另行安装 JDK 8——
+      可在 Oracle 页面下方找到，注意其包名为 <code>macosx</code> 而非 <code>macos</code>。
+      多个版本同时安装不会冲突，Macl 会依据实例自动选择。
     </p>
   </div>
 </section>
@@ -205,13 +205,13 @@
 <!-- ============================================================ 上手 -->
 <section class="section-pad">
   <div class="wrap-narrow">
-    <h2 data-reveal>Java 有了，剩下三步</h2>
+    <h2 data-reveal>Java 就绪后，余下三步</h2>
     <div class="steps">
       <div class="step" data-reveal>
         <span class="no">01</span>
         <div>
           <h3>新建实例</h3>
-          <p>点侧栏的「+」，选一个游戏版本。列表里有 900 多个版本，输入 <code>1.21.1</code> 就能直接定位。</p>
+          <p>点击侧栏的「+」，选择一个游戏版本。列表包含 900 余个版本，输入 <code>1.21.1</code> 即可快速定位。</p>
         </div>
       </div>
 
@@ -227,14 +227,14 @@
         <span class="no">03</span>
         <div>
           <h3>点「启动游戏」</h3>
-          <p>启动前会自检 Java、依赖库、资源索引。全绿就直接进游戏；有问题会明确告诉你是哪个。</p>
+          <p>启动前将自动自检 Java、依赖库与资源索引。全部通过即可直接进入游戏；若存在问题，将明确提示具体项目。</p>
         </div>
       </div>
     </div>
 
     <div class="note">
-      <strong>账户：</strong>现在能直接用的是离线账户 —— 起个名字就能玩单人模式和局域网。微软正版登录的代码已经写好（OAuth 流程 + Keychain 令牌保管 + 登录界面），
-      但要在 Azure 注册应用、填入 clientID 才会开放，本期暂未启用。如果你只玩单机与自建服务器，离线账户足够了。
+      <strong>账户：</strong>当前可直接使用的是离线账户——仅需命名即可游玩单人模式与局域网。微软正版登录的完整实现（OAuth 流程 + Keychain 令牌保管 + 登录界面）均已就绪，
+      但需先在 Azure 注册应用并填入 clientID 后方才启用，本期暂不开放。若仅游玩单机或自建服务器，离线账户已足够。
     </div>
   </div>
 </section>
@@ -242,12 +242,12 @@
 <!-- ============================================================ 已知限制 -->
 <section class="section-pad">
   <div class="wrap-narrow">
-    <h2 data-reveal>这一版还没有的东西</h2>
+    <h2 data-reveal>本版本尚未包含的功能</h2>
     <table class="spec-table">
       <tr><th>微软账户登录</th><td>登录代码（OAuth 流程 + Keychain 令牌保管）已实现，但需要在 Azure 注册应用并填入 clientID 才能启用，本期暂不开放</td></tr>
       <tr><th>自动更新</th><td>新版本需要手动下载覆盖。应用本身不联网检查更新</td></tr>
       <tr><th>Apple 公证</th><td>没有。首次打开需要右键，见上方安装步骤</td></tr>
-      <tr><th> CurseForge 冷门 mod</th><td>官方 API 被 Cloudflare 拦，走社区镜像（cfwidget）补链。热门包秒下，冷门包首次查询可能排队几十秒</td></tr>
+      <tr><th> CurseForge 冷门 mod</th><td>官方 API 受 Cloudflare 拦截，改经社区镜像（cfwidget）补全链接。热门整合包可即时获取，冷门包首次查询可能需排队数十秒</td></tr>
     </table>
   </div>
 </section>
@@ -257,7 +257,7 @@
   <div class="wrap-narrow">
     <h2 data-reveal>文件校验</h2>
     <p style="color:var(--dim);font-size:15px;margin-bottom:18px">
-      下载完成后，可以在终端里核对 SHA-256。与下面一致，说明文件完整。
+      下载完成后，可在终端中核对 SHA-256。若与下方一致，即表明文件完整。
     </p>
     <div class="cmd">
       <span>shasum -a 256 ~/Downloads/Macl-1.3.2.zip</span>
@@ -270,7 +270,7 @@
 <footer class="footer">
   <div class="wrap">
     <div class="row">
-      <div><strong style="color:var(--dim);font-weight:500">Macl</strong> · 用 Swift 写成 · 2026</div>
+      <div><strong style="color:var(--dim);font-weight:500">Macl</strong> · 基于 Swift 开发 · 2026</div>
       <div style="display:flex;gap:22px">
         <a href="../">首页</a>
         <a href="../downloads/Macl-1.3.2.zip">下载</a>
@@ -290,7 +290,7 @@
 
     <p class="sep">
       Macl 是独立开发的第三方启动器，与 Mojang Studios、Microsoft 无任何关联。<br>
-      Minecraft 是 Mojang Studios 的商标。使用本软件需要你自行拥有合法的 Minecraft 账户。
+      Minecraft 是 Mojang Studios 的商标。使用本软件需用户自行拥有合法的 Minecraft 账户。
     </p>
   </div>
 </footer>
