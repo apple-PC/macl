@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-25T17:51:38+08:00",
+  "updatedAt": "2026-11-26T17:30:57+08:00",
   "downloads": {
     "total": 15,
     "byRelease": {
@@ -80,6 +80,10 @@
     },
     {
       "date": "2026-11-25",
+      "downloads": 15
+    },
+    {
+      "date": "2026-11-26",
       "downloads": 15
     }
   ],
